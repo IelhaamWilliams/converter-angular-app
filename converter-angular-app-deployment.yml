@@ -3,20 +3,20 @@ kind: Deployment
 metadata:
   name: converter-angular-app-deployment
   labels:
-    app: converter-angular-app-boot
+    app: converter-angular-app
 spec:
   replicas: 1
   selector:
     matchLabels:
-      app: converter-angular-app-boot
+      app: converter-angular-app
   template:
     metadata:
       labels:
-        app: converter-angular-app-boot
+        app: converter-angular-app
     spec:
       containers:
-      - name: converter-angular-app-boot
-        image: ielhaam/converter-angular-app-boot
+      - name: converter-angular-app
+        image: ielhaam/converter-angular-app
         ports:
         - name: http
           containerPort: 4200
@@ -24,12 +24,12 @@ spec:
 apiVersion: v1
 kind: Service
 metadata:
-  name: converter-angular-app-boot
+  name: converter-angular-app
   labels:
-    app: converter-angular-app-boot
+    app: converter-angular-app
 spec:
   selector:
-    app: converter-angular-app-boot
+    app: converter-angular-app
   ports:
   - name: http
     port: 80

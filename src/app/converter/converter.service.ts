@@ -13,7 +13,7 @@ const httpOptions = {
 @Injectable({ providedIn: 'root' })
 export class ConverterService {
 
-  private unitOfMeasureURL = 'http://localhost:30372/converter';  
+  private unitOfMeasureURL = 'http://localhost/converter';
   headerDict = {
     'Content-Type': 'application/json',
     'Accept': 'application/json',
