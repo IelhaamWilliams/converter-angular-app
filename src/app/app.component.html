@@ -1,0 +1,71 @@
+<!--The content below is only a placeholder and can be r
+  eplaced.-->
+<div style="text-align:left">
+  <h1>
+    Converter
+  </h1>
+  <!--Temeperature Converter Line-->
+  <div>
+    <h2>Temperature Conversion</h2>
+  value:
+  <input id="tempValue" [formControl]="tempValue">
+  from Unit:
+  <select [formControl]="tempFromUnit">
+    <option *ngFor="let tempUnit of temperatureUnits" value="{{tempUnit.unit}}">{{tempUnit.name}} [{{tempUnit.unit}}]</option>
+  </select>
+  to Unit:
+  <select [formControl]="tempToUnit">
+      <option *ngFor="let tempUnit of temperatureUnits" value="{{tempUnit.unit}}">{{tempUnit.name}} [{{tempUnit.unit}}]</option>
+  </select>
+
+  <button (click)="convertTemperature()">convert</button>
+
+  <div *ngIf="temperatureResultToShow">result: {{this.tempResult}}</div>
+ 
+</div>
+<hr>
+
+<!--Mass Converter Line-->
+<div>
+    <h2>Mass Conversion</h2>
+    value:
+    <input id="massValue" [formControl]="massValue">
+    from Unit:
+    <select [formControl]="massFromUnit">
+      <option *ngFor="let unit of massUnits" value="{{unit.unit}}">{{unit.name}} [{{unit.unit}}]</option>
+    </select>
+    to Unit:
+    <select [formControl]="massToUnit">
+        <option *ngFor="let unit of massUnits" value="{{unit.unit}}">{{unit.name}} [{{unit.unit}}]</option>
+    </select>
+  
+    <button (click)="convertMass()">convert</button>
+  
+    <div *ngIf="massResultToShow">Result: {{this.massResult}}</div>
+  </div>
+  
+  <hr>
+
+  <!--Length Converter Line-->
+<div>
+    <h2>Length Conversion</h2>
+    value:
+    <input id="lengthValue" [formControl]="lengthValue">
+    from Unit:
+    <select [formControl]="lengthFromUnit">
+      <option *ngFor="let unit of lengthUnits" value="{{unit.unit}}">{{unit.name}} [{{unit.unit}}]</option>
+    </select>
+    to Unit:
+    <select [formControl]="lengthToUnit">
+        <option *ngFor="let unit of lengthUnits" value="{{unit.unit}}">{{unit.name}} [{{unit.unit}}]</option>
+    </select>
+  
+    <button (click)="convertLength()">convert</button>
+  
+    <div *ngIf="lengthResultToShow">Result: {{this.lengthResult}}</div>
+  </div>
+
+  
+  </div>
+
+<router-outlet></router-outlet>
