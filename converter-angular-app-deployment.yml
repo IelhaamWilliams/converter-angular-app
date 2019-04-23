@@ -1,0 +1,40 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: converter-angular-app-deployment
+  labels:
+    app: converter-angular-app-boot
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: converter-angular-app-boot
+  template:
+    metadata:
+      labels:
+        app: converter-angular-app-boot
+    spec:
+      containers:
+      - name: converter-angular-app-boot
+        image: ielhaam/converter-angular-app-boot
+        ports:
+        - name: http
+          containerPort: 4200
+---
+apiVersion: v1
+kind: Service
+metadata:
+  name: converter-angular-app-boot
+  labels:
+    app: converter-angular-app-boot
+spec:
+  selector:
+    app: converter-angular-app-boot
+  ports:
+  - name: http
+    port: 80
+    targetPort: http
+    protocol: TCP
+  type: LoadBalancer
+          
+      
